@@ -34,6 +34,10 @@ const Basket = ({ match: { params: { areaId, itemId }}, foodAreas, order }) => {
     return [ accounting.formatNumber(result, 0, ' '), products ];
   }, [ order, item ]);
 
+  const onCreateOrder = (evt) => {
+    if (price <= 0) evt.preventDefault();
+  }
+
   return (
     <div className="Place">
       <header className="Place__header">
@@ -147,7 +151,7 @@ const Basket = ({ match: { params: { areaId, itemId }}, foodAreas, order }) => {
         </div>
       </div>
       <footer className="Place__footer">
-        <Link to={`/order/${area.id}/${item.id}`} className="Place__order">
+        <Link to={`/order/${area.id}/${item.id}`} className="Place__order" onClick={onCreateOrder}>
           Оплатить {price}
         </Link>
       </footer>

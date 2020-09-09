@@ -192,7 +192,6 @@ const App = () => {
 								onIncrementPosition={({ id, itemId, areaId }) => {
 									console.log(id)
 									console.log(itemId)
-									debugger
 									const updatedOrder = {...order};
 
 									if (id in updatedOrder) {
