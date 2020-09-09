@@ -176,8 +176,6 @@ const App = () => {
 
 							nextStatuses[itemId] = type;
 
-							console.log({[itemId]: type})
-
 							setOrderStatuses(nextStatuses);
 							localStorage.setItem('orderStatuses', JSON.stringify(nextStatuses));
 						}}
@@ -201,8 +199,6 @@ const App = () => {
 								area={FOOD_AREAS[0]}
 								order={order}
 								onIncrementPosition={({ id, itemId, areaId }) => {
-									console.log(id)
-									console.log(itemId)
 									const updatedOrder = {...order};
 
 									if (id in updatedOrder) {

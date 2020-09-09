@@ -10,8 +10,6 @@ import './place.css';
 const Place = ({ item, order, onIncrementPosition, onDecrementPosition, area }) => {
   const price = useMemo(() => {
     const foodIds = new Set((item.foods || []).map(item => item.id));
-    console.log(foodIds)
-    console.log(order)
 
     const result = Object.values(order)
       .filter((value) => {
