@@ -33,7 +33,7 @@ const FOOD_AREAS = [{
 			name: 'Классик',
 			price: 150,
 		}, {
-			id: 'bigmac',
+			id: 'potato',
 			image: OneTowar,
 			name: 'Картофель фри',
 			price: 50,
@@ -81,7 +81,7 @@ const FOOD_AREAS = [{
 			name: 'Гамбургер',
 			price: 50,
 		}, {
-			id: 'bigmac1',
+			id: 'bigmac',
 			image: ThreeTowar,
 			name: 'Биг мак',
 			price: 200,
