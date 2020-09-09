@@ -176,6 +176,9 @@ const App = () => {
 
 							nextStatuses[itemId] = type;
 
+							console.log({[itemId]: type})
+
+
 							setOrderStatuses(nextStatuses);
 							localStorage.setItem('orderStatuses', JSON.stringify(nextStatuses));
 						}}
