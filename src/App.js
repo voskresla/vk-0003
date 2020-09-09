@@ -81,7 +81,7 @@ const FOOD_AREAS = [{
 			name: 'Гамбургер',
 			price: 50,
 		}, {
-			id: 'bigmac',
+			id: 'bigmac1',
 			image: ThreeTowar,
 			name: 'Биг мак',
 			price: 200,
