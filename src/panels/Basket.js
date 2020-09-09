@@ -8,10 +8,17 @@ import edit from '../img/edit.svg';
 import './place.css';
 
 
-const Basket = ({ match: { params: { areaId, itemId }}, foodAreas, order }) => {
-  const [ faster, setFaster ] = useState(true);
-  const [ time, setTime ] = useState('');
-  const [ selfService, setSelfService ] = useState(false);
+const Basket = ({ 
+  match: { params: { areaId, itemId }}, 
+  foodAreas, 
+  order, 
+  time, 
+  setTime, 
+  faster, 
+  setFaster, 
+  selfService, 
+  setSelfService 
+}) => {
   const area = foodAreas.filter(area => area.id === areaId)[0];
   const item = area.items.filter(item => item.id === itemId)[0];
 
