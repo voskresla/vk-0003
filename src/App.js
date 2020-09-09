@@ -33,7 +33,7 @@ const FOOD_AREAS = [{
 			name: 'Классик',
 			price: 150,
 		}, {
-			id: 'bigmac',
+			id: 'potato',
 			image: OneTowar,
 			name: 'Картофель фри',
 			price: 50,
@@ -81,7 +81,7 @@ const FOOD_AREAS = [{
 			name: 'Гамбургер',
 			price: 50,
 		}, {
-			id: 'bigmac1',
+			id: 'bigmac',
 			image: ThreeTowar,
 			name: 'Биг мак',
 			price: 200,
@@ -125,6 +125,9 @@ const foodsMap = FOOD_AREAS.reduce((result, area) => {
 }, {});
 
 const App = () => {
+	const [ faster, setFaster ] = useState(true);
+  const [ time, setTime ] = useState('');
+  const [ selfService, setSelfService ] = useState(false);
 	const [ orderStatuses, setOrderStatuses ] = useState(JSON.parse((localStorage.getItem('orderStatuses') || 'null')) || {});
 	const [ order, setOrder ] = useState(JSON.parse((localStorage.getItem('orders') || 'null')) || {});
 
@@ -152,6 +155,12 @@ const App = () => {
 					<Basket
 						foodAreas={FOOD_AREAS}
 						order={order}
+						faster={faster}
+						setFaster={setFaster}
+						time={time}
+						setTime={setTime}
+						selfService={selfService}
+						setSelfService={setSelfService}
 					/>
 				</Route>
 				<Route
@@ -194,7 +203,6 @@ const App = () => {
 								onIncrementPosition={({ id, itemId, areaId }) => {
 									console.log(id)
 									console.log(itemId)
-									debugger
 									const updatedOrder = {...order};
 
 									if (id in updatedOrder) {

@@ -8,10 +8,17 @@ import edit from '../img/edit.svg';
 import './place.css';
 
 
-const Basket = ({ match: { params: { areaId, itemId }}, foodAreas, order }) => {
-  const [ faster, setFaster ] = useState(true);
-  const [ time, setTime ] = useState('');
-  const [ selfService, setSelfService ] = useState(false);
+const Basket = ({ 
+  match: { params: { areaId, itemId }}, 
+  foodAreas, 
+  order, 
+  time, 
+  setTime, 
+  faster, 
+  setFaster, 
+  selfService, 
+  setSelfService 
+}) => {
   const area = foodAreas.filter(area => area.id === areaId)[0];
   const item = area.items.filter(item => item.id === itemId)[0];
 
@@ -33,6 +40,10 @@ const Basket = ({ match: { params: { areaId, itemId }}, foodAreas, order }) => {
 
     return [ accounting.formatNumber(result, 0, ' '), products ];
   }, [ order, item ]);
+
+  const onCreateOrder = (evt) => {
+    if (price <= 0) evt.preventDefault();
+  }
 
   return (
     <div className="Place">
@@ -123,6 +134,7 @@ const Basket = ({ match: { params: { areaId, itemId }}, foodAreas, order }) => {
           <span>Назначить</span>
           <input
             value={time}
+            type="time"
             onFocus={() => {
               setFaster(false);
             }}
@@ -147,7 +159,7 @@ const Basket = ({ match: { params: { areaId, itemId }}, foodAreas, order }) => {
         </div>
       </div>
       <footer className="Place__footer">
-        <Link to={`/order/${area.id}/${item.id}`} className="Place__order">
+        <Link to={`/order/${area.id}/${item.id}`} className={`Place__order ${price <= 0 ? 'Place__order-disabled' : ''}`} onClick={onCreateOrder}>
           Оплатить {price}
         </Link>
       </footer>
